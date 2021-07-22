@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GetApiService } from './get-api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  constructor( private api:GetApiService )
+  {
+
+  }
+  ngOnInit() //call the fetch function
+  {
+    this.api.apiCall().subscribe((data)=>{
+      console.log("get api data",data);
+    })
+  }
 }
