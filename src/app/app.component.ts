@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetApiService } from './get-api.service';
 
 @Component({
@@ -6,16 +6,18 @@ import { GetApiService } from './get-api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'frontend';
-  constructor( private api:GetApiService )
-  {
+export class AppComponent implements OnInit{
+  movies:any;
 
-  }
-  ngOnInit() //call the fetch function
+  constructor( private api:GetApiService ){ }
+
+  ngOnInit() :void
   {
-    this.api.apiCall().subscribe((data)=>{
-      console.log("get api data",data);
-    })
+    this.api.getApi().subscribe(Response=>{ 
+
+      this.movies=Response;
+      console.log(Response);
+    });
   }
+
 }

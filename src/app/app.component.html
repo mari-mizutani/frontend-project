@@ -5,10 +5,20 @@
       Search your Ghibli anime
     </p>
   </div>
-  <div class="select is-large is-primary">
-    <select>
-      <option>Select dropdown</option>
-      <option>With options</option>
-    </select>
-  </div>
+  <form>
+    <div class="select is-primary">
+      <select>
+        <option *ngFor="let movie of movies">{{movie.title}}</option>
+      </select>
+    </div>
+    <div class="control">
+      <button class="button is-primary my-3">Submit</button>
+    </div>
+  </form>
+  <!-- <table>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movies }}</td>
+    </tr>
+  </table> -->
 </section>
+

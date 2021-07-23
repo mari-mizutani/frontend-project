@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,7 +11,8 @@ export class GetApiService {
     private http:HttpClient
   ){ }
 
-  apiCall(){
+  //get movies
+  getApi(): Observable<any>{
     return this.http.get('https://ghibliapi.herokuapp.com/films/');
   }
 }
